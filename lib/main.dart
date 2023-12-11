@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'first_screen.dart';
-import 'menu_screen.dart';
-import 'riding_screen.dart';
+import 'package:sumit_hack/prezentation/first_screen.dart';
+import 'package:sumit_hack/prezentation/menu_screen.dart';
+import 'package:sumit_hack/prezentation/riding_screen.dart';
 
 void main() {
   runApp(const MyApp());
@@ -35,8 +35,7 @@ class ScaffoldWithBackground extends StatelessWidget {
   // Widget koji će biti dijete Containera
   final Widget child;
 
-  const ScaffoldWithBackground({Key? key, required this.child})
-      : super(key: key);
+  const ScaffoldWithBackground({Key? key, required this.child}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
