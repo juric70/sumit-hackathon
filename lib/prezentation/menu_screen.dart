@@ -54,7 +54,7 @@ class MenuScreen extends StatelessWidget {
                     ),
                   ),
                   onTap: () {
-                    Navigator.pushNamed(context, '/ridingscreen');
+                    Navigator.pushNamed(context, '/startride');
                   },
                 );
               },

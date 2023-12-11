@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:sumit_hack/prezentation/first_screen.dart';
 import 'package:sumit_hack/prezentation/menu_screen.dart';
 import 'package:sumit_hack/prezentation/riding_screen.dart';
+import 'package:sumit_hack/prezentation/start_ride.dart';
 
 void main() {
   runApp(const MyApp());
@@ -25,6 +26,7 @@ class MyApp extends StatelessWidget {
       routes: {
         '/menuscreen': (context) => MenuScreen(),
         '/ridingscreen': (context) => RidingScreen(),
+        '/startride': (context) => StartRide()
       },
     );
   }
@@ -35,7 +37,8 @@ class ScaffoldWithBackground extends StatelessWidget {
   // Widget koji će biti dijete Containera
   final Widget child;
 
-  const ScaffoldWithBackground({Key? key, required this.child}) : super(key: key);
+  const ScaffoldWithBackground({Key? key, required this.child})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {

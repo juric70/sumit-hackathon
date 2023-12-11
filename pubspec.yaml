@@ -66,6 +66,15 @@ flutter:
     - images/chooseMode.png
     - images/ExploreCity.png
     - images/logo.png
+    - images/bpm.png
+    - images/lights.png
+    - images/psi.png
+    - images/settings.png
+    - images/startBtn.png
+    - images/terapeut.png
+    - images/dokle.png
+    - images/stop.png
+
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
 
