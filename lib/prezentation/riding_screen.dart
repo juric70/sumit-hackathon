@@ -29,20 +29,6 @@ class RidingScreen extends StatelessWidget {
         child: Stack(
           children: [
             Positioned(
-              bottom: 10,
-              left: 10,
-              right: 10,
-              child: InkWell(
-                onTap: () {
-                  print("object");
-                  Navigator.of(context).popUntil((route) => route.settings.name == '/menuscreen');
-                },
-                child: const Image(
-                  image: AssetImage('images/stop.png'),
-                ),
-              ),
-            ),
-            Positioned(
               top: 10,
               child: SizedBox(
                 width: MediaQuery.of(context).size.width,
@@ -106,6 +92,20 @@ class RidingScreen extends StatelessWidget {
                 ),
               ),
             ),
+            Positioned(
+              bottom: 10,
+              left: 10,
+              right: 10,
+              child: InkWell(
+                onTap: () {
+                  print("object");
+                  Navigator.of(context).popUntil((route) => route.settings.name == '/menuscreen');
+                },
+                child: const Image(
+                  image: AssetImage('images/stop.png'),
+                ),
+              ),
+            ),
           ],
         ),
       ),
@@ -135,7 +135,7 @@ class Svjetla extends StatefulWidget {
 }
 
 class _SvjetlaState extends State<Svjetla> {
-  bool isExpanded = true;
+  bool isExpanded = false;
   int settingIndex = 0;
 
   @override
