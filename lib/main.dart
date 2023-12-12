@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
       routes: {
         '/menuscreen': (context) => MenuScreen(),
         '/ridingscreen': (context) => RidingScreen(),
-        '/startride': (context) => StartRide()
+        '/startride': (context) => const StartRide()
       },
     );
   }

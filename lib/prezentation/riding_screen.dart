@@ -1,6 +1,7 @@
 // menu_screen.dart
 import 'package:flutter/material.dart';
 import 'package:sumit_hack/main.dart';
+import 'package:sumit_hack/prezentation/modovi.dart';
 
 class RidingScreen extends StatelessWidget {
   final List<String> opcije = [
@@ -31,13 +32,19 @@ class RidingScreen extends StatelessWidget {
               bottom: 10,
               left: 10,
               right: 10,
-              child: Container(
-                child: Image(image: AssetImage('images/stop.png')),
+              child: InkWell(
+                onTap: () {
+                  print("object");
+                  Navigator.of(context).popUntil((route) => route.settings.name == '/menuscreen');
+                },
+                child: const Image(
+                  image: AssetImage('images/stop.png'),
+                ),
               ),
             ),
             Positioned(
               top: 10,
-              child: Container(
+              child: SizedBox(
                 width: MediaQuery.of(context).size.width,
                 height: MediaQuery.of(context).size.height,
                 child: Column(
@@ -69,16 +76,26 @@ class RidingScreen extends StatelessWidget {
                                   ),
                                   Text(
                                     opcije[index],
-                                    style: const TextStyle(
-                                        fontSize: 30,
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.bold),
+                                    style: const TextStyle(fontSize: 30, color: Colors.white, fontWeight: FontWeight.bold),
                                   ),
                                 ],
                               ),
                             ),
                             onTap: () {
                               print('odabrali ste ${opcije[index]}');
+
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => Modovi(
+                                    image: 'images/warning.png',
+                                    text: opcije[index],
+                                    onTap: () {
+                                      Navigator.of(context).popUntil((route) => route.settings.name == '/menuscreen');
+                                    },
+                                  ),
+                                ),
+                              );
                             },
                           );
                         },

@@ -4,6 +4,8 @@ import 'dart:async';
 import 'package:sumit_hack/main.dart';
 
 class StartRide extends StatefulWidget {
+  const StartRide({Key? key}) : super(key: key);
+
   @override
   _StartRideState createState() => _StartRideState();
 }
@@ -20,7 +22,7 @@ class _StartRideState extends State<StartRide> {
   }
 
   void _startTimer() {
-    _timer = Timer.periodic(Duration(seconds: 1), (timer) {
+    _timer = Timer.periodic(const Duration(seconds: 1), (timer) {
       setState(() {
         if (_counter > 0) {
           _counter--;
@@ -28,7 +30,7 @@ class _StartRideState extends State<StartRide> {
         } else {
           _timer.cancel();
           _displayText = 'Start';
-          Timer(Duration(seconds: 2), () {
+          Timer(const Duration(seconds: 2), () {
             Navigator.pushNamed(context, '/ridingscreen');
           });
         }
@@ -53,7 +55,7 @@ class _StartRideState extends State<StartRide> {
                 )
               : Text(
                   _displayText,
-                  style: TextStyle(fontSize: 80, color: Colors.white),
+                  style: const TextStyle(fontSize: 80, color: Colors.white),
                 ),
         ),
       ),
