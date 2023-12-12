@@ -58,16 +58,17 @@ class RidingScreen extends StatelessWidget {
                     const SizedBox(
                       height: 15,
                     ),
+                    Svjetla(),
                     Expanded(
                       child: ListView.builder(
-                        itemCount: opcije.length,
+                        itemCount: opcije.length - 1,
                         itemBuilder: (context, index) {
                           return ListTile(
                             title: Center(
                               child: Row(
                                 children: [
                                   Image(
-                                    image: AssetImage(slike[index]),
+                                    image: AssetImage(slike[index + 1]),
                                     width: 80,
                                     height: 80,
                                   ),
@@ -75,7 +76,7 @@ class RidingScreen extends StatelessWidget {
                                     width: 15,
                                   ),
                                   Text(
-                                    opcije[index],
+                                    opcije[index + 1],
                                     style: const TextStyle(fontSize: 30, color: Colors.white, fontWeight: FontWeight.bold),
                                   ),
                                 ],
@@ -108,6 +109,129 @@ class RidingScreen extends StatelessWidget {
           ],
         ),
       ),
+    );
+  }
+}
+
+class Svjetla extends StatefulWidget {
+  Svjetla({
+    Key? key,
+  }) : super(key: key);
+
+  final List<String> text = [
+    'Svjetla jako',
+    'Svjetla srednje',
+    'Svjetla ugašena',
+  ];
+
+  final List<String> slike = [
+    'images/lights.png',
+    'images/lightsMid.png',
+    'images/lightsOff.png',
+  ];
+
+  @override
+  State<Svjetla> createState() => _SvjetlaState();
+}
+
+class _SvjetlaState extends State<Svjetla> {
+  bool isExpanded = true;
+  int settingIndex = 0;
+
+  @override
+  Widget build(BuildContext context) {
+    if (isExpanded) {
+      return GestureDetector(
+        onTap: () {
+          isExpanded = !isExpanded;
+          setState(() {});
+        },
+        child: Container(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Row(
+                children: [
+                  Image(
+                    image: AssetImage(widget.slike[settingIndex]),
+                    width: 80,
+                    height: 80,
+                  ),
+                  const SizedBox(
+                    width: 15,
+                  ),
+                  Text(
+                    widget.text[settingIndex],
+                    style: const TextStyle(
+                      fontSize: 30,
+                      color: Colors.white,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                ],
+              ),
+              Container(
+                width: MediaQuery.of(context).size.width,
+                height: 80,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    IconButton(
+                      onPressed: () {
+                        settingIndex = 0;
+                        setState(() {});
+                      },
+                      icon: Image.asset('images/lightsFull.png'),
+                    ),
+                    IconButton(
+                      onPressed: () {
+                        settingIndex = 1;
+                        setState(() {});
+                      },
+                      icon: Image.asset('images/lightsMid.png'),
+                    ),
+                    IconButton(
+                      onPressed: () {
+                        settingIndex = 2;
+                        setState(() {});
+                      },
+                      icon: Image.asset('images/lightsOff.png'),
+                    ),
+                  ],
+                ),
+              )
+            ],
+          ),
+        ),
+      );
+    }
+    return ListTile(
+      title: Center(
+        child: Row(
+          children: [
+            Image(
+              image: AssetImage(widget.slike[settingIndex]),
+              width: 80,
+              height: 80,
+            ),
+            const SizedBox(
+              width: 15,
+            ),
+            Text(
+              widget.text[settingIndex],
+              style: const TextStyle(
+                fontSize: 30,
+                color: Colors.white,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+          ],
+        ),
+      ),
+      onTap: () {
+        isExpanded = !isExpanded;
+        setState(() {});
+      },
     );
   }
 }
