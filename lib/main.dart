@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:sumit_hack/prezentation/first_screen.dart';
 import 'package:sumit_hack/prezentation/menu_screen.dart';
 import 'package:sumit_hack/prezentation/riding_screen.dart';
 import 'package:sumit_hack/prezentation/simulator.dart';
+import 'package:sumit_hack/prezentation/first_screen.dart';
 import 'package:sumit_hack/prezentation/start_ride.dart';
 
 void main() {
@@ -22,12 +22,12 @@ class MyApp extends StatelessWidget {
       ),
       debugShowCheckedModeBanner: false,
       // Postavite prvi screen kao početni screen
-      home: const SimulirajUpozorenje(),
+      home: const FirstScreen(),
       // Definirajte rutu za drugi screen
       routes: {
         '/menuscreen': (context) => MenuScreen(),
         '/ridingscreen': (context) => RidingScreen(),
-        '/startride': (context) => StartRide(),
+        '/startride': (context) => const StartRide(),
       },
     );
   }

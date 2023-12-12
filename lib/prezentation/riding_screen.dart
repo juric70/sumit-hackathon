@@ -20,6 +20,20 @@ class RidingScreen extends StatelessWidget {
     'images/bpm.png',
     'images/settings.png',
   ];
+  final List<String> sendslike = [
+    'images/warning.png',
+    'images/odredište.png',
+    'images/burnedCal.png',
+    'images/asistent.png',
+    'images/asistent.png',
+  ];
+  final List<String> sendtekst = [
+    'Pritisak u gumama je nizak',
+    'Stigli ste na odredišt',
+    'Sagorjeli ste zadovoljavajući broj kalorija',
+    'Parkirajte na sigurno i provjerite puls',
+    'Još samo 154 kalorije',
+  ];
 
   RidingScreen({Key? key}) : super(key: key);
   @override
@@ -75,8 +89,8 @@ class RidingScreen extends StatelessWidget {
                                 context,
                                 MaterialPageRoute(
                                   builder: (context) => Modovi(
-                                    image: 'images/warning.png',
-                                    text: opcije[index],
+                                    image: sendslike[index],
+                                    text: sendtekst[index],
                                     onTap: () {
                                       Navigator.of(context).popUntil((route) => route.settings.name == '/menuscreen');
                                     },
@@ -170,7 +184,7 @@ class _SvjetlaState extends State<Svjetla> {
                   ),
                 ],
               ),
-              Container(
+              SizedBox(
                 width: MediaQuery.of(context).size.width,
                 height: 80,
                 child: Row(

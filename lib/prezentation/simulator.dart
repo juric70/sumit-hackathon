@@ -13,7 +13,7 @@ class SimulirajUpozorenje extends StatelessWidget {
           Center(
             child: ElevatedButton(
               onPressed: () {},
-              child: Text("Prikažu upozorenje"),
+              child: const Text("Prikažu upozorenje"),
             ),
           ),
         ],
